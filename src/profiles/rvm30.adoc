@@ -1,44 +1,44 @@
-== RVM30 Profiles
+== RVM10 Profiles
 
 NOTE: This is a *proposed* profile in early development.  The contents
 of this chapter are a draft and subject to change.  Not for
 implementation.
 
-The RVM30 profile family targets microcontroller-class processors,
+The RVM10 profile family targets microcontroller-class processors,
 with the goal of simplifying the demands on the software ecosystem,
 particularly toolchains and library suppliers.
 
-It is explicitly a non-goal of RVM30 to provide maximum flexibility
+It is explicitly a non-goal of RVM10 to provide maximum flexibility
 for microcontroller developers.  Maximum flexibility can already be
-achieved using individual RISC-V extensions.  The goal of RVM30 is to
+achieved using individual RISC-V extensions.  The goal of RVM10 is to
 mandate a common set of standard extensions to simplify software
 support and reduce fragmentation across MCU vendors.
 
-RVM30 builds on the intent of RVM23 and raises the mandatory floor to
+RVM10 builds on the intent of RVM23 and raises the mandatory floor to
 reflect the current state of the RISC-V ISA and the needs of mid-range
 and high-end embedded applications in industrial control, motor
 drives, automotive ECUs, IoT gateways, and similar workloads.
 
-This initial version of the RVM30 family specifies only unprivileged
-ISA features (RVM30U32).  ISA features related to interrupt and
+This initial version of the RVM10 family specifies only unprivileged
+ISA features (RVM10U32).  ISA features related to interrupt and
 exception handling or privileged execution are often highly
 platform-specific in the microcontroller domain and are planned for a
-subsequent phase that will define RVM30S32 and RVM30M32.
+subsequent phase that will define RVM10S32 and RVM10M32.
 
-=== RVM30U32 Profile
+=== RVM10U32 Profile
 
-The RVM30U32 profile specifies the ISA features available to
+The RVM10U32 profile specifies the ISA features available to
 unprivileged execution environments in 32-bit microcontroller-class
 processors.
 
-==== RVM30U32 Mandatory Base
+==== RVM10U32 Mandatory Base
 
-RV32I is the mandatory base ISA for RVM30U32, and is little-endian.
+RV32I is the mandatory base ISA for RVM10U32, and is little-endian.
 As per the unprivileged architecture specification, the `ECALL`
 instruction causes a requested trap to the execution environment.
 
 NOTE: An ultra-minimal profile based on RV32E is out of scope for
-RVM30 and may be specified separately in the future.
+RVM10 and may be specified separately in the future.
 
 Misaligned loads and stores might not be supported.
 
@@ -46,15 +46,15 @@ NOTE: Software should not assume that misaligned loads and stores will
 work, or that all misaligned loads and stores will necessarily cause a
 trap.
 
-==== RVM30U32 Mandatory Extensions
+==== RVM10U32 Mandatory Extensions
 
-The following extensions are mandatory in RVM30U32:
+The following extensions are mandatory in RVM10U32:
 
 - extlink:m[] Integer multiplication and division.
 
 NOTE: Mandating divide instructions in addition to multiplies (rather
 than only mandating ext:zmmul[]) adds modest area but reduces
-optionality.  RVM30 targets mid-range and high-end MCUs, not the
+optionality.  RVM10 targets mid-range and high-end MCUs, not the
 smallest possible microcontrollers.
 
 - extlink:b[] Bit-manipulation instructions (comprising ext:zba[],
@@ -111,48 +111,48 @@ as NOPs.
 NOTE: Cycle-accurate timing is essential for WCET analysis and
 deadline guarantees in real-time MCU workloads.
 
-==== RVM30U32 Optional Extensions
+==== RVM10U32 Optional Extensions
 
-NOTE: The optional-extensions set for RVM30U32 is still under TG
+NOTE: The optional-extensions set for RVM10U32 is still under TG
 discussion.  The subsections below define the structural categories;
 individual options will be added as the draft matures.
 
 ===== Localized Options
 
-There are no localized options in RVM30U32 yet.
+There are no localized options in RVM10U32 yet.
 
 ===== Development Options
 
-There are no development options in RVM30U32 yet.
+There are no development options in RVM10U32 yet.
 
 ===== Expansion Options
 
-There are no expansion options in RVM30U32 yet.
+There are no expansion options in RVM10U32 yet.
 
 ===== Transitory Options
 
-There are no transitory options in RVM30U32.
+There are no transitory options in RVM10U32.
 
-==== RVM30U32 Recommendations
+==== RVM10U32 Recommendations
 
 Implementations are strongly recommended to raise illegal-instruction
 exceptions on attempts to execute unimplemented opcodes.
 
-=== RVM30S32 Profile
+=== RVM10S32 Profile
 
-NOTE: RVM30S32 is a placeholder for the privileged-architecture phase
-of RVM30 and is not specified in this draft.  The privileged phase is
+NOTE: RVM10S32 is a placeholder for the privileged-architecture phase
+of RVM10 and is not specified in this draft.  The privileged phase is
 planned for a subsequent revision and the mandatory and optional
 extensions are subject to TG discussion.  Topics under discussion
 include the supervisor-mode baseline, the interrupt-controller model
 (CLIC, AIA, or legacy CLINT), and the scope of PMP requirements.
 
-=== RVM30M32 Profile
+=== RVM10M32 Profile
 
-NOTE: RVM30M32 is a placeholder for the machine-mode profile of the
+NOTE: RVM10M32 is a placeholder for the machine-mode profile of the
 privileged-architecture phase and is not specified in this draft.
-RVM30M32 is expected to include the mandatory and optional extensions
-of RVM30S32, plus machine-mode-only requirements such as PMP and
+RVM10M32 is expected to include the mandatory and optional extensions
+of RVM10S32, plus machine-mode-only requirements such as PMP and
 its enhancements.
 
 //
