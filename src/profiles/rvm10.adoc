@@ -14,9 +14,8 @@ achieved using individual RISC-V extensions.  The goal of RVM10 is to
 mandate a common set of standard extensions to simplify software
 support and reduce fragmentation across MCU vendors.
 
-RVM10 builds on the intent of RVM23 and raises the mandatory floor to
-reflect the current state of the RISC-V ISA and the needs of mid-range
-and high-end embedded applications in industrial control, motor
+RVM10 reflect the current state of the RISC-V ISA and the needs of 
+mid-range and high-end embedded applications in industrial control, motor
 drives, automotive ECUs, IoT gateways, and similar workloads.
 
 This initial version of the RVM10 family specifies only unprivileged
